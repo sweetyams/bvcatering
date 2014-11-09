@@ -1,3 +1,17 @@
-<?php require 'views/includes/header.php'; ?>
+<?php
 
-<?php require 'views/includes/footer.php'; ?>
+require 'flight/Flight.php';
+
+Flight::set('url', '');
+
+Flight::route('/', function(){
+   Flight::render('home.php', array('title'=>'Home Page','lang' => 'en','bodyClass' => ''));
+});
+
+Flight::route('/menu', function(){
+   Flight::render('menu.php', array('title'=>'Menu','lang' => 'en','bodyClass' => ''));
+});
+
+Flight::start();
+
+?>
