@@ -7,11 +7,13 @@
     <title>BV Catering | <?=$title ?></title>
     
     <!-- fonts -->
+
     <link rel="stylesheet" type="text/css" href="css/fonts/brandontext.css">
     <script src="//use.typekit.net/qyf7nhx.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
 
     <!-- stylesheets -->
+    <link rel="stylesheet" href="http://i.icomoon.io/public/83069ee1f8/BonVivantSite/style.css">
     <link rel="stylesheet" href="/css/foundation.css" />
     <link rel="stylesheet" href="/css/custom.css" /> 
 
@@ -22,23 +24,25 @@
   </head>
   <body class="<?=$bodyClass; ?>">
 
-    <header>
-      <div class="row">
-        <div class="menu-left">
-          <ul>
-            <li><a href="/menu">Menu</a></li>
-            <li><a href="/how-it-works">How it works</a></li>
-          </ul>
-        </div>
-        <div class="logo">
-        </div>
-        <div class="menu-right">
-          <div class="user">
-          Sign In
+    <div class="container">
+      <header>
+        <div class="row">
+
+          <div class="menu-left">
+            <ul>
+              <li><a href="/menu">BV Menu</a></li>
+              <li><a href="/how-it-works">How it works</a></li>
+            </ul>
           </div>
-          <div class="cart">
-          <span></span>
+          <div class="logo">
           </div>
+
+          <div class="menu-cart">
+              <a class="popup" data-popup="signin">Sign In</a>
+            <div class="cart">
+              <span class="icon-cart"></span>
+            </div>
+          </div>
+
         </div>
-      </div>
-    </header>
+      </header>

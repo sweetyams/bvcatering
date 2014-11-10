@@ -3,7 +3,7 @@ body, h1, h2, h3, h4, h5, h6 {
   font-style: normal;
   font-weight: 100;
   font-style: normal;
-  letter-spacing: .02em;
+  letter-spacing: .03em;
   -webkit-font-smoothing: antialiased; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -14,10 +14,6 @@ h1, h2, h3, h4, h5, h6 {
 hr {
   border-style: dashed;
   border-color: #f2f2f2; }
-
-body {
-  background: white;
-  letter-spacing: .05em; }
 
 p {
   font-family: BrandonText-Light, "proxima-nova", sans-serif;
@@ -60,6 +56,9 @@ ul {
 .toppad-30 {
   padding-top: 30px; }
 
+.toppad-40 {
+  padding-top: 40px; }
+
 .toppad-50 {
   padding-top: 50px; }
 
@@ -77,6 +76,9 @@ ul {
 
 .bottompad-30 {
   padding-bottom: 30px; }
+
+.bottompad-40 {
+  padding-bottom: 40px; }
 
 .bottompad-50 {
   padding-bottom: 50px; }
@@ -142,3 +144,262 @@ textarea {
   display: table-cell;
   text-align: center;
   vertical-align: middle; }
+
+.check {
+  /*hiding the original checkboxes*/
+  /*when the user checks the checkbox the checked icon will animate in*/ }
+  .check .box {
+    padding: 0;
+    margin: 0;
+    background: #f2f2f2;
+    width: 100%;
+    position: relative; }
+  .check input[type="checkbox"] + label {
+    line-height: 60px;
+    font-family: BrandonText-Light, "proxima-nova", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.75);
+    margin-left: 64px; }
+  .check label:before, .check label:after {
+    font-family: 'icomoon';
+    font-size: 44px;
+    /*absolutely positioned*/
+    position: absolute;
+    top: 0;
+    left: 11px;
+    color: #73b6c6;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease; }
+  .check label:before {
+    content: '\e60f';
+    /*unchecked*/ }
+  .check label:after {
+    content: '\e610';
+    /*checked*/
+    /*checked icon will be hidden by default by using 0 max-width and overflow hidden*/
+    max-width: 0;
+    opacity: 0;
+    /*CSS3 transitions for animated effect*/ }
+  .check input[type="checkbox"] {
+    display: none; }
+  .check input[type="checkbox"]:checked + label:after {
+    max-width: 25px;
+    /*an arbitratry number more than the icon's width*/
+    opacity: 1;
+    /*for fade in effect*/ }
+  .check input[type="checkbox"]:checked + label:before {
+    opacity: 0; }
+
+body.admin {
+  width: 100%; }
+
+body.admin header .row {
+  max-width: 100%; }
+
+body.admin .contents .row {
+  width: calc(100% - $sidebar);
+  margin-left: 220px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+
+body.admin.closed .contents .row, body.admin.hidden .contents .row {
+  width: calc(100% - 70px);
+  margin-left: 70px; }
+body.admin.closed .sidebar, body.admin.hidden .sidebar {
+  width: 70px; }
+  body.admin.closed .sidebar .title, body.admin.hidden .sidebar .title {
+    background: #f2f2f2; }
+  body.admin.closed .sidebar .active .title, body.admin.hidden .sidebar .active .title {
+    background: #6AC892; }
+  body.admin.closed .sidebar li a .title, body.admin.hidden .sidebar li a .title {
+    transform: perspective(200px) rotateY(90deg);
+    transform-origin: 0; }
+  body.admin.closed .sidebar li:hover a .title, body.admin.hidden .sidebar li:hover a .title {
+    transform: perspective(200px) rotateY(0deg);
+    transform-origin: 0;
+    background: #e6e6e6; }
+  body.admin.closed .sidebar li:hover a.active .title, body.admin.hidden .sidebar li:hover a.active .title {
+    background: #6AC892; }
+body.admin.closed .header, body.admin.hidden .header {
+  margin-left: 70px; }
+
+header {
+  height: 80px;
+  background: #333333; }
+  header .row {
+    position: relative;
+    padding: 0 20px; }
+  header a {
+    font-size: 12px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .1em; }
+  header ul {
+    margin-top: 25px; }
+    header ul li {
+      display: inline-block;
+      padding: 0 10px; }
+  header .menu-cart {
+    height: 50px;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    line-height: 49px;
+    width: auto; }
+    header .menu-cart a {
+      display: block;
+      height: 100%;
+      position: relative;
+      top: 0;
+      right: 50px;
+      min-width: 50px;
+      padding: 0 20px;
+      border-bottom-left-radius: 2px;
+      border-top-left-radius: 2px;
+      color: #232323;
+      background: #e6e6e6; }
+      header .menu-cart a:hover {
+        background: white; }
+    header .menu-cart .cart {
+      display: block;
+      height: 100%;
+      background: #85BFCD;
+      position: absolute;
+      top: 0;
+      right: 0;
+      min-width: 50px;
+      border-bottom-right-radius: 2px;
+      border-top-right-radius: 2px;
+      text-align: center; }
+      header .menu-cart .cart span {
+        color: white;
+        font-size: 32px;
+        line-height: 48px; }
+
+.sidebar {
+  width: 220px;
+  height: calc(100% - 80px);
+  position: absolute;
+  float: left;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  z-index: 20;
+  background: #f2f2f2; }
+  .sidebar a {
+    font-size: 10px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .1em;
+    color: #232323;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    display: block;
+    position: relative; }
+    .sidebar a:hover {
+      background: #e6e6e6; }
+    .sidebar a.active {
+      background: #6AC892;
+      color: white; }
+      .sidebar a.active .title {
+        background: #6AC892; }
+    .sidebar a .icon {
+      position: absolute;
+      font-size: 34px;
+      left: 18px;
+      top: 8px;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease; }
+    .sidebar a .title {
+      position: absolute;
+      left: 70px;
+      background: none;
+      padding: 0 20px;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+      white-space: nowrap;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease; }
+  .sidebar .close {
+    background: #e6e6e6;
+    position: absolute;
+    bottom: 0;
+    width: 100%; }
+    .sidebar .close .icon {
+      color: #232323; }
+    .sidebar .close .title {
+      background: #e6e6e6; }
+
+footer {
+  display: none; }
+
+.logo {
+  background: url("../img/logo-white.png");
+  height: 40px;
+  width: 240px;
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 20px;
+  background-size: 100%; }
+
+.header {
+  background: #424242;
+  height: 180px;
+  text-align: center;
+  padding-top: 30px;
+  margin-left: 220px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+  .header h4, .header span {
+    color: gray; }
+  .header span {
+    font-size: 80px; }
+
+.input {
+  padding: 4px;
+  display: inline-block;
+  width: 100%; }
+
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea {
+  width: 100%;
+  background: #f2f2f2;
+  border: 0;
+  box-shadow: none;
+  height: 60px;
+  font-size: 16px;
+  letter-spacing: .03em;
+  padding: 0 20px;
+  margin: 0;
+  font-family: BrandonText-Light, "proxima-nova", sans-serif;
+  font-weight: normal;
+  font-style: normal; }
+  input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="color"]:focus, textarea:focus {
+    background: #e6e6e6; }
+
+.half {
+  width: 50%; }

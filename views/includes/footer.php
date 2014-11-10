@@ -1,3 +1,4 @@
+</div>
     <footer>
       <div class="row">
         
@@ -15,7 +16,7 @@
     
     <!-- royalslider -->
     <script src="/js/min/foundation-min.js"></script>
-    <script src="/js/min/custom.js"></script>
+    <script src="/js/min/custom-min.js"></script>
 
     <script>
       $(document).foundation();

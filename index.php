@@ -12,6 +12,11 @@ Flight::route('/menu', function(){
    Flight::render('menu.php', array('title'=>'Menu','lang' => 'en','bodyClass' => ''));
 });
 
+// ACCOUNT FILES
+Flight::route('/account/profile', function(){
+   Flight::render('account/profile.php', array('title'=>'Menu','lang' => 'en','bodyClass' => 'admin'));
+});
+
 Flight::start();
 
 ?>
