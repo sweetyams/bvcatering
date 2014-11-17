@@ -8,29 +8,29 @@
     
     <!-- fonts -->
 
-    <link rel="stylesheet" type="text/css" href="css/fonts/brandontext.css">
-    <script src="//use.typekit.net/qyf7nhx.js"></script>
-    <script>try{Typekit.load();}catch(e){}</script>
+<!--     <link rel="stylesheet" type="text/css" href="css/fonts/brandontext.css">
+ -->    <!-- <script src="//use.typekit.net/qyf7nhx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script> -->
 
     <!-- stylesheets -->
     <link rel="stylesheet" href="http://i.icomoon.io/public/83069ee1f8/BonVivantSite/style.css">
     <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/css/datetime.css" /> 
     <link rel="stylesheet" href="/css/custom.css" /> 
 
     <!-- scripts and jquery -->
-    <script src="/js/min/jquery-min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="/js/min/modernizr-min.js"></script>
     
   </head>
   <body class="<?=$bodyClass; ?>">
 
-    <div class="container">
       <header>
         <div class="row">
 
           <div class="menu-left">
             <ul>
-              <li><a href="/menu">BV Menu</a></li>
+              <li><a href="/menu">Our Menu</a></li>
               <li><a href="/how-it-works">How it works</a></li>
             </ul>
           </div>
@@ -38,11 +38,17 @@
           </div>
 
           <div class="menu-cart">
-              <a class="popup" data-popup="signin">Sign In</a>
+
+              <a class="popup modal changetab" data-target="#alltabs" href="#signtab" data-subtarget="#sign" data-subtab="#signin">Sign In</a>
             <div class="cart">
               <span class="icon-cart"></span>
             </div>
           </div>
+          <ul class="signup">
+            <li>
+              <a class="modal changetab" data-target="#alltabs" href="#signtab" data-subtarget="#sign" data-subtab="#signup">Sign Up</a>
+            </li>
+          </ul>
 
         </div>
       </header>

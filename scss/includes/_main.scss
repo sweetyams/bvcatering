@@ -3,21 +3,44 @@ $sidebar-closed : 70px;
 body.admin{
 	width: 100%;
 }
-body.admin header .row{
-	max-width:100%;
+body.order{
+	background: $grey-5;
+	padding-top: 40px;
+}
+body.checkout .contents{
+	background: $grey-5;
+	min-height: calc(100% - 144px);
+  padding-bottom: 100px;
+}
+body.admin{
+	header .row, footer .row{
+		max-width:100%;
+	}
 }
 
 body.admin .contents .row{
-	width: calc(100% - $sidebar);
-	margin-left: $sidebar;
+	width: 100%;
 	@include transition(all,.5s,ease);
+	margin-top: 60px;
+}
+body.admin .contents:before{
+	content: "";
+	width:220px;
+	height: 100%;
+	position: absolute;
+	left:0;
+	background: $grey-5;
+	left: -220px;
+}
+
+body.admin .contents{
+	padding-bottom: 60px;
+	min-height: 540px;
+	position: relative;
 }
 
 body.admin.closed, body.admin.hidden{
-	.contents .row{
-		width: calc(100% - #{$sidebar-closed });
-		margin-left: $sidebar-closed ;
-	}
+
 	.sidebar{
 		width: $sidebar-closed;
 		.title{
@@ -46,11 +69,16 @@ body.admin.closed, body.admin.hidden{
 
 		}
 	}
-
-	.header{
-		margin-left: $sidebar-closed;
+	.container{
+		margin-left: 70px;
+	}
+	.contents:before{
+		width:70px;
+		left: -70px;
 	}
 }
+
+
 
 header{
 	height: 80px;
@@ -78,7 +106,7 @@ header{
 		height:50px;
 		position: absolute;
 		top:15px;
-		right:20px;
+		right:30px;
 		line-height: 49px;
 		width:auto;
 		a{
@@ -122,14 +150,22 @@ header{
 	}
 }
 
+.container{
+	margin-left: $sidebar;
+	@include transition(all,.5s,ease);
+}
+
 .sidebar{
 	width: $sidebar;
-	height: calc(100% - 80px);
-	position: absolute;
+	height: auto;
 	float: left;
 	@include transition(all,.5s,ease);
 	z-index: 20;
-		background: $grey-5;
+	background: $grey-5;
+	top: 80px;
+	left:0;
+	position: absolute;
+	min-height: 540px;
 	a{
 		font-size: 10px;
 		color:white;
@@ -164,7 +200,7 @@ header{
 			position: absolute;
 			left: 70px;
 			background: none;
-			padding: 0 20px;
+			padding: 0 20px 0 10px;
 			border-top-right-radius: 2px;
 			border-bottom-right-radius: 2px;
 			white-space: nowrap;
@@ -173,7 +209,7 @@ header{
 	}
 	.close{
 		background: $grey-10;
-		position: absolute;
+		// position: absolute;
 		bottom: 0;
 		width:100%;
 		.icon{
@@ -186,7 +222,34 @@ header{
 }
 
 footer{
-	display: none;
+	background: $menu;
+	padding: 60px 0;
+	.row{
+		padding: 0 20px;
+	}
+	a,p{
+		font-size: 12px;
+	}
+	ul li{
+		display: inline-block;
+	}
+	a, p{
+		color: white;
+		@include brandon;
+		text-transform: uppercase;
+	}
+	p{
+		color: $grey-40;
+	}
+	.phone{
+		font-size: 16px;
+	}
+	.social{
+		font-size: 16px;
+
+		padding:5px;
+		padding-top: 10px;
+	}
 }
 
 .logo {
@@ -200,6 +263,14 @@ footer{
 	margin: auto;
 	top: 20px;
 	background-size: 100%;
+	&.dark{
+		background: url("../img/logo-black.png");
+		background-size: 100%;
+		position: relative;
+		top:auto;
+		display: inline-block;
+		margin:0;
+	}
 }
 
 .header{
@@ -207,7 +278,6 @@ footer{
 	height: 180px;
 	text-align: center;
 	padding-top: 30px;
-	margin-left: $sidebar;
 	@include transition(all,.5s,ease);
 	h4, span{
 		color:$grey-50;
@@ -219,27 +289,870 @@ footer{
 
 
 .input{
-	padding: 4px;
+	padding: 3px;
 	display: inline-block;
 	width:100%;
 }
 
-input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea{
-	width:100%;
-	background: $grey-5;
-	border:0;
-	box-shadow: none;
-	height: 60px;
-	font-size: 16px;
-	letter-spacing: .03em;
-	padding:0 20px;
-	margin:0;
-	@include text;
-	&:focus{
-		background: $grey-10;
-	}
+
+
+textarea{
+	padding-top: 19px;
 }
 
 .half{
 	width:50%;
+	display: inline-block;
 }
+.one-quarter{
+	width:25%;
+	display: inline-block;
+}
+.three-quarter{
+	width:75%;
+	display: inline-block;
+}
+
+
+
+table { 
+	border:none;
+	width:100%;
+    border-spacing: 0px;
+    border-collapse: separate;
+
+	thead tr th, thead tr td{
+		text-transform: uppercase;
+		font-size: 10px;
+	}
+	tbody tr td{
+		padding: 0 10px;
+		height: 60px;
+	}
+
+}
+
+.panel{
+	background: $grey-5;
+	border: 0;
+	margin-top: 20px;
+	&:not(.white){
+	input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea{
+		background: white;
+	}
+	}
+	&.white{
+		background: white;
+		border: 1px solid $grey-10;
+		border-radius: 2px;
+		padding: 40px;
+		@include transition(all,.5s,ease);
+	}
+
+}
+.review{
+	min-height: 74px;
+	padding-top: 15px;
+}
+.address{
+	background: #f2f2f2;
+	border: 0;
+	margin-top: 20px;
+	margin-bottom: .5rem;
+	padding: 1.25rem;
+	overflow: auto;
+	font-size: 14px;
+	overflow: hidden;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	position: relative;
+	form{
+		max-height: 0;
+		@include transition(all,.5s,ease);
+	}
+	&.active form{
+		max-height: 800px;
+	}
+	p{
+		line-height: 21px;
+		margin-bottom: 0;
+	}
+	p span.set-type, p span.set-time{
+		font-size: 12px;
+		color: $grey-40;
+	}
+	.cancel-button{
+		display: none;
+	}
+	.isactive{
+		width: 80px;
+		position: absolute;
+		right: 270px;
+		top: 7px;
+	}
+}
+
+.message{
+	textarea:hover, textarea:active{
+		background: $grey-5;
+	}
+	.label{
+		position: absolute;
+		left: -30px;
+		text-transform: uppercase;
+		font-size: 11px;
+		font-weight: 600;
+		&:after{
+			content: "";
+			width: 0;
+			height: 0;
+			border-left: 15px solid transparent;
+			border-right: 15px solid transparent;
+			border-top: 15px solid #f2f2f2;
+			position: absolute;
+			top: 0;
+			left: 35px;
+		}
+	}
+	&.them{
+		.block{
+			background: $grey-10;
+		}
+		.label{
+		left:auto;
+		right: -40px;
+			&:after{
+				right: 43px;
+				left:auto;
+				border-top-color: $grey-10;
+			}
+		}
+	}
+	.date{
+		color: $grey-30;
+		font-size: 14px;
+		margin: 5px 0 15px 0;
+	}
+	.block{
+		padding: 19px 20px 9px 20px;
+		background: $grey-5;
+		p{
+			margin-bottom: 10px;
+		}
+	}
+	&.first{
+		.block{
+			background: $blue;
+		}
+		.label:after{
+			border-top-color: $blue;
+		}
+	}
+}
+.contents{
+	background: white;
+}
+
+
+
+.overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: white;
+    display: block;
+	z-index: -1000;
+	#loadcontent{
+		display: none;
+	}
+	h5.checkout{
+		margin-bottom:20px;
+		display: none;
+	}
+	&.checkout-visible{
+		h5.checkout{
+			display: block;
+		}
+	}
+	&.order{
+		overflow: scroll;
+		height: auto;
+		background: $grey-5;
+		#signtabs{
+			position: absolute;
+			z-index: -100;
+		}
+		#loadcontent{
+			display: block;
+		}
+	}
+    &.active{
+    	opacity: 1;
+    	display: block;
+    	z-index: 1000
+    }
+}
+
+.signin{
+	overflow: auto;
+	margin-top: 0;
+}
+
+.tabs {
+  position: relative;   
+  min-height: 200px; /* This part sucks */
+  clear: both;
+  margin: 25px 0;
+  &.payment{
+    .list-wrap{
+      padding-bottom: 0;
+    }
+  }
+}
+.tab {
+  float: left;
+  width:50%;
+}
+
+.tab [type=radio] {
+  display: none;   
+}
+.content {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  background: $grey-5;
+
+}
+[type=radio]:checked ~ label {
+  background: $grey-5;
+  z-index: 2;
+}
+[type=radio]:checked ~ label ~ .content {
+  z-index: 1;
+}
+.small{
+	font-size: 14px;
+	color: $grey-60;
+	margin:2px;
+}
+
+.hidenav{
+	display: none;
+}
+.tabs {
+	.list-wrap{
+		background: $grey-5;
+		width:100%;
+		position: relative;
+		@include transition(all,.5s,ease);
+		overflow: hidden;
+		padding-bottom: 30px;
+		&.noback{
+			background: none;
+		}
+		.hidetabs{
+			background: white;
+			height: 100%;
+			width:100%;
+			position: absolute;
+			z-index: 0;
+			top:0;left:0;
+		}
+		.tabcontent{
+			display: block;
+			position: absolute;
+			width: 100%;
+			z-index: -100000;
+			.panel{
+				padding: 30px;
+				padding-top: 30px;
+			}
+			.icon{
+				font-size: 80px;
+			}
+			&.front{
+				z-index: 1;
+			}
+
+		}
+		
+	}
+
+	.panel{
+		margin-top: 0;
+		overflow: auto;
+	}
+	.hidden{
+		display: none;
+	}
+	ul { list-style: none; }
+	&.nav { overflow: hidden; margin: 0 0 10px 0; }
+	.nav li{
+		margin: 0;
+		width:50%;
+		display: inline-block;
+		a{
+			display: block;
+			width: 100%;
+			position: relative;
+		  	height: 60px;
+			line-height: 60px;
+			text-transform: uppercase;
+			font-size: 14px;
+			font-weight: 300;
+			width:100%;
+			margin:0;
+			color: $black;
+			background: white;
+			&:hover{
+				background: lighten($grey-5,3%);
+			}
+		}
+		a.current{
+			background: $grey-5;
+		}
+	}
+}
+
+.signup{
+	position: absolute;
+	right: 180px;
+	top: 0;
+}
+.moreinfo{
+	position: absolute;
+	top: 100%;
+	width: 100%;
+	text-align: center;
+	margin-top: 10px;
+}
+.modaloption{
+	opacity: 0;
+}
+
+.contentpanel{
+	text-align: center;
+	.status{
+		margin: 0 5px;
+	}
+	h4{
+		margin-top: 20px;
+		padding-bottom: 4px;
+		border-bottom: 1px solid $grey-10;
+		display: inline-block;
+	}
+	.carttotal{
+		width: 240px;
+		display: inline-block;
+		position: relative;
+		margin-top: 30px;
+		.button{
+			width:100%;
+			margin:0;
+		}
+		p{
+			font-size: 13px;
+			margin:0;
+			text-transform: uppercase;
+			text-align: left;
+			padding: 0 20px;
+			padding-bottom: 4px;
+			font-weight: 600;
+			span{
+				font-weight: 400;
+				float: right;
+			}
+		}
+		.info{
+			background: $grey-5;
+			border-radius: 2px;
+			padding-top: 14px;
+			padding-bottom: 14px;
+			margin-bottom: 10px;
+			height: 76px;			
+			.price{
+				color:white;
+				border-radius: 2px;
+				font-size: 30px;
+				font-weight: 100;
+				height: 76px;
+				background: $green;
+				line-height: 74px;
+				text-align: center;
+				position: absolute;
+				width: 100%;
+				top: 0;
+				left:0;
+				transform: perspective( 1000px ) rotateY( 0deg );
+				transform-origin: right;
+				@include transition(all,.5s,ease);
+				span{
+					font-weight: 600;
+				}
+			}
+			&:hover .price {
+				left:-100%;
+				transform: perspective( 1000px ) rotateY( -70deg );
+			}
+		}
+	}
+}
+
+.responsive{
+		thead{
+			background: none;
+		}
+		thead tr th{
+			color: $grey-50;
+		}
+	.item td, .option td{
+		height: 66px;
+		background: $grey-5;
+		&:first-child{
+			border-top-left-radius: 2px;
+			border-bottom-left-radius: 2px;
+			padding-left: 30px;
+		}
+		&:last-child{
+			border-top-right-radius: 2px;
+			border-bottom-right-radius: 2px;
+		}
+	}
+  .item td.quantity, .option td.quantity{
+    div{
+      background: white;
+      border-radius: 2px;
+      height: 36px;
+      line-height: 36px;
+      text-align: center;
+      position: relative;
+      min-width: 70px;
+      input[type="text"]{
+        background: white;
+        text-align: center;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        height: 36px;
+        position: absolute;
+        left: 0;
+        border-radius: 2px;
+        z-index: 0;
+      }
+      span{
+        display: inline-block;
+        height: 36px;
+        border-radius: 2px;
+        position:absolute;
+        left:0;
+        width:32px;
+        line-height: 36px;
+        cursor: pointer;
+        &:hover{
+          background: $green;
+          color:white;
+        }
+      }
+      span.icon-plus{
+        left:auto;
+        right:0;
+      } 
+    }
+  }
+  .totalprice{
+    min-width: 80px;
+  }
+	&.cart{
+		td:first-child{
+			padding-left: 20px;
+			width:50px;
+		}		
+	}
+	table tbody tr td{
+		font-size: 12px;
+	}
+	.item td{
+		border-top: 6px solid white;
+	}
+	.item td span.icon-close, .option td span.icon-close{
+		background: #ddd;
+		border-radius: 50%;
+		height: 30px;
+		width: 30px;
+		display: inline-block;
+		line-height: 30px;
+		text-align: center;
+		font-size: 13px;
+		color: white;
+		cursor: pointer;
+		&:hover{
+			background: $grey-20;
+		}
+	}
+	.option td span.icon-close{
+		background: white;
+		height: 25px;
+		width:25px;
+		line-height: 25px;
+		color: $grey-20;
+		&:hover{
+			background: white;
+			color: $grey-40;
+		}
+	}
+	.option {
+		td{
+			height: 48px;
+			background: $grey-10;
+			&:first-child{
+				border-left: 10px solid white;
+			}
+			&:last-child{
+				border-right: 10px solid white;
+			}
+		}
+	}
+}
+
+.checkout-header{
+	background: white;
+	text-align: center;
+ .row{
+		padding: 12px 0;
+	}
+	.cancel{
+		position: absolute;
+		left:20px;
+	}
+}
+
+.date, .time{
+	cursor: pointer;
+}
+
+.picker__weekday{
+	text-align: center;
+	font-size: 14px;
+}
+.picker__table thead{
+	background: none;
+}
+
+.picker--opened .picker__holder{
+	background: white;
+}
+
+.picker__table{
+	text-align: center;
+}
+
+.picker__table tbody tr td{
+	text-align: center;
+}
+
+.picker__table tr:nth-of-type(even){
+	background: none;
+}
+
+.picker__day{
+	font-size: 24px;
+	line-height: 60px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+.picker__nav--prev, .picker__nav--next{
+	text-align: center;
+	padding: 0;
+	width: 80px;
+	margin-top: .4em;
+}
+
+.picker__nav--prev:before, .picker__nav--next:before{
+	font-family: 'icomoon';
+	content: '\e634';
+	border:none;
+	font-family: 'icomoon';
+	content: '\e634';
+	border: none;
+	margin: 0;
+	text-align: center;
+	position: absolute;
+	width: 100%;
+}
+.picker__nav--next:before{
+	content: '\e635';
+}
+.picker__day--infocus:hover, .picker__day--outfocus:hover{
+	background: lighten($green,5%);
+}
+.picker__day--highlighted:hover, .picker--focused .picker__day--highlighted{
+	background: $green;
+}
+.picker__day--highlighted{
+	border-color: $dark-green;
+}
+.picker__day--today:before{
+	display: none;
+}
+
+.picker__button--today, .picker__button--clear, .picker__button--close{
+	border: none;
+	background: $blue;
+	border-radius: 2px;
+	font-size: 14px;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: .05em;
+	width: 28%;
+	@include brandon;
+	margin: 0 10px;
+	&:hover{
+		background: $dark-blue;
+		color:white;
+	}
+}
+.picker__button--close{
+	background: $red;
+	&:hover{
+		background: $dark-red;
+		color:white;
+	}
+}
+
+.picker__button--today:before, .picker__button--clear:before, .picker__button--close:before{
+	display: none;
+}
+.picker__button--today{
+	display: none;
+}
+
+@media (min-height: 40.125em) {
+	.picker__frame {
+		margin-bottom: 12.5%;
+	}
+}
+
+.picker__list-item{
+	border:0;
+	border-radius: 2px;
+	text-align: center;
+}
+.picker__list-item:hover{
+	background: $green !important;
+	color:white;
+}
+.picker__list-item--highlighted:hover, .picker--focused .picker__list-item--highlighted{
+	background: $green !important;
+	border: 1px solid $dark-green;
+	color:white;
+}
+.picker--time .picker__box{
+	background: white;
+}
+.picker__list{
+	padding: 0;
+}
+.picker--time .picker__button--clear{
+	background: $red;
+	border-radius: 2px;
+	color: white;
+	font-size: 14px;
+	&:hover{
+		background: $dark-red;
+	}
+}
+
+.button-group{
+	text-align: center;
+	display: inline-block;
+	border-radius: 2px;
+	padding: 2px 2px;
+	background: $green;
+	li{
+		display: inline-block;
+	}
+	.button{
+		margin:1px;
+		min-width: 140px;
+		&.active, &.current{
+			background: darken($green,15%);
+			border-color: darken($green,15%);
+		}
+		&.inactive{
+			cursor: default;
+			&:hover{
+				background: $green;
+				border-color:$green;
+			}
+		}
+	}
+	&.payment{
+		background: $blue;
+		margin-bottom: 20px;
+		div{
+			display: inline-block;
+		}
+		.button{
+			&.active, &.current{
+				background: darken($blue,15%);
+				border-color: darken($blue,15%);
+			}
+		}
+	}
+}
+
+.paypal{
+  width:100%;
+  height:198px;
+  border:1px solid $grey-5;
+  border-radius: 2px;
+  background: url("../img/paypal.jpg");
+  background-position: center center;
+  background-size: 110px;
+  background-repeat: no-repeat;
+}
+
+.cheque-example{
+  background: $grey-5;
+  border: 1px solid $grey-10;
+  border-radius: 2px;
+  padding: 20px;
+  padding-bottom: 6px;
+  position: relative;
+  .name, .num, .thedate, .days{
+    float: left;
+    font-size: 12px;
+    color: $grey-20;
+  }
+  .name{
+    position: absolute;
+    top: 12px;
+  }
+  .num{
+    float: right;
+    position: absolute;
+    right:20px;
+    top: 12px;
+  }
+  .thedate{
+    position: absolute;
+    right: 120px;
+    top: 40px;
+    text-transform: uppercase;
+  }
+  .cents{
+    position: absolute;
+    left: 309px;
+    top: 156px;
+    font-size: 11px;
+    .cent{
+      position: absolute;
+      left: -12px;
+      top: -13px;
+    }
+    .hundred{
+      color: $grey-20;
+      &:before{
+        content:"";
+        height:1px;
+        left: -13px;
+        width: 28px;
+        background: $grey-10;
+        display: block;
+        position: absolute;
+        @include rotate(-45);
+      }
+    }
+  }
+  .days{
+    position: absolute;
+    right: 20px;
+    top: 56px;
+    span{
+      display: inline-block;
+      margin: 1px;
+      position: relative;
+      width: 10px;
+      &:after{
+        content:"";
+        display: block;
+        width:10px;
+        height: 18px;
+        background: white;
+        position: absolute;
+        top:-20px;
+      }
+    }
+  }
+  .orderof{
+    position: absolute;
+    left: 20px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 17px;
+    top: 106px;
+    color: $grey-20;
+  }
+  .toname{
+    position: absolute;
+    top: 99px;
+    border-bottom: 1px solid $grey-10;
+    left: 90px;
+    font-size: 30px;
+    line-height: 38px;
+    width: 240px;
+    text-align: left;
+  }
+  .amount{
+    background: white;
+    display: inline-block;
+    padding: 10px 18px;
+    font-size: 26px;
+    position: absolute;
+    right: 20px;
+    top: 80px;
+  }
+  .cost{
+    position: absolute;
+    left: 20px;
+    top: 146px;
+    border-bottom: 1px solid $grey-10;
+    text-align: left;
+    width: 310px;
+  }
+  .bottom{
+    width: 100%;
+    text-align: left;
+    margin-top: 167px;
+    .re, .per{
+      width: 40%;
+      margin-left: 10%;
+      border-bottom: 1px solid $grey-10;
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: $grey-20;
+      position: relative;
+      height: 24px;
+      span{
+        left: -40px;
+        text-align: right;
+        top: 0;
+        position: absolute;
+        width: 30px;
+      }
+      .retext{
+        left:5px;
+        text-transform: none;
+        color: $black;
+        font-size: 14px;
+      }
+    }
+  }
+}
+

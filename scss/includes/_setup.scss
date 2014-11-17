@@ -33,6 +33,12 @@ form{
 .center{
   text-align: center;
 }
+.textleft{
+  text-align: left;
+}
+.textright{
+  text-align: right;
+}
 
 //RESETS
 a{
@@ -77,6 +83,25 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus
   box-shadow: none;
 }
 
+input[type="text"][disabled], input[type="text"][readonly], fieldset[disabled] input[type="text"], input[type="password"][disabled], input[type="password"][readonly], fieldset[disabled] input[type="password"], input[type="date"][disabled], input[type="date"][readonly], fieldset[disabled] input[type="date"], input[type="datetime"][disabled], input[type="datetime"][readonly], fieldset[disabled] input[type="datetime"], input[type="datetime-local"][disabled], input[type="datetime-local"][readonly], fieldset[disabled] input[type="datetime-local"], input[type="month"][disabled], input[type="month"][readonly], fieldset[disabled] input[type="month"], input[type="week"][disabled], input[type="week"][readonly], fieldset[disabled] input[type="week"], input[type="email"][disabled], input[type="email"][readonly], fieldset[disabled] input[type="email"], input[type="number"][disabled], input[type="number"][readonly], fieldset[disabled] input[type="number"], input[type="search"][disabled], input[type="search"][readonly], fieldset[disabled] input[type="search"], input[type="tel"][disabled], input[type="tel"][readonly], fieldset[disabled] input[type="tel"], input[type="time"][disabled], input[type="time"][readonly], fieldset[disabled] input[type="time"], input[type="url"][disabled], input[type="url"][readonly], fieldset[disabled] input[type="url"], input[type="color"][disabled], input[type="color"][readonly], fieldset[disabled] input[type="color"], textarea[disabled], textarea[readonly], fieldset[disabled] textarea{
+  background: $grey-5;
+}
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea{
+  width:100%;
+  background: $grey-5;
+  border:0;
+  box-shadow: none;
+  height: 60px;
+  font-size: 15px;
+  letter-spacing: .03em;
+  padding:0 20px;
+  margin:0;
+  @include text;
+  &:focus{
+    background: $grey-10;
+  }
+}
+
 select{
   border: none;
   box-shadow: none;
@@ -102,15 +127,6 @@ textarea{
   @include transition(height,400ms, ease);
 }
 
-.button{
-  @include brandon;
-  text-transform: uppercase;
-  letter-spacing: .2em;
-  margin:0;
-  height: 40px;
-  line-height: 41px;
-  margin-top: 2px;
-}
 
 .vert-out {
   display: table;
@@ -131,19 +147,26 @@ textarea{
     background: $grey-5;
     width:100%;       
     position: relative; 
+    min-height: 60px;
+    &.half{
+      width:50%;
+      display: inline-block;
+    }
   }
   input[type="checkbox"] + label {
-    line-height: 60px;
+    line-height: 22px;
     @include text;
-    font-size: 16px;
+    font-size: 15px;
     color: rgba(0, 0, 0, 0.75);
     margin-left: 64px;
+    padding: 19px 0;
   }
   label:before, label:after {
     font-family: 'icomoon';
     font-size: 44px;
     /*absolutely positioned*/
-    position: absolute; top: 0; left: 11px;
+    position: absolute; top: 19px; 
+    left: 11px;
     color: $dark-blue;
     @include transition(all,1s,ease);
   }
@@ -171,5 +194,125 @@ textarea{
   }
   input[type="checkbox"]:checked + label:before {
     opacity: 0;
+  }
+}
+
+.stars{
+  position: absolute;
+  top: 32px;
+  span:before{
+    content: '\e618';
+    font-family: 'icomoon';
+    font-size: 22px;
+    letter-spacing: 0;
+    color: $grey-10;
+
+  }
+  &.stars-5 .star2:before{
+    color: $green;
+  }
+  &.stars-1 .star1:before{
+    color: $green;
+  }
+}
+
+.stars-1.star1:before{
+  color: $green;
+}
+.stars-2{
+  .star2:before, .star1:before{
+    color: $green;
+  }
+}
+.stars-3{
+  .star3:before,.star2:before,.star1:before{
+    color: $green;
+  }
+}
+.stars-4{
+  .star4:before,.star3:before,.star2:before, .star1:before{
+    color: $green;
+  }
+}
+.stars-5{
+  .star5:before,.star4:before,.star3:before,.star2:before, .star1:before{
+    color: $green;
+  }
+}
+
+
+.status, .button{
+  border: 1px solid $grey-20;
+  padding: 8px 20px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-align: center;
+  color: $grey-20;
+  display: inline-block;
+  letter-spacing: .1em;
+  font-weight: 600;
+  margin:0;
+  margin-top: 2px;
+  @include brandon;
+  &.pending{
+    border-color: $purple;
+    color: $purple;
+  }
+  &.approved{
+    border-color: $green;
+    color: $green;
+  }
+  &.complete{
+    border-color: $blue;
+    color: $blue;
+  }  
+}
+
+@mixin button($color, $hover){
+    background: $color;
+    border-color: $color;
+    &:hover{
+      background: $hover;
+      border-color: $hover;
+    }
+}
+
+
+.button{
+  @include brandon;
+  height: auto;
+  line-height: inherit;
+  color: white;
+  margin: 2px;
+  
+  @include button($blue, $dark-blue);
+
+  &.success{
+    @include button($green, $dark-green);
+  }
+  &.cancel{
+    @include button($red, $dark-red);
+  }
+  &.grey{
+    @include button($grey-10, $grey-15);
+  }
+  &.large{
+    padding: 15px 20px;
+    font-size: 11px;
+    color:$menu;
+  }
+  &.modal_close{
+    background: none;
+    border-color: $black;
+    color: $black;
+    right:30px;
+    top:20px;
+    position: absolute;
+    z-index: 100;
+    &:hover{
+      background: $black;
+      color: white;
+    }
   }
 }
