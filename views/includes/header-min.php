@@ -13,7 +13,7 @@
     <script>try{Typekit.load();}catch(e){}</script> -->
 
     <!-- stylesheets -->
-    <link rel="stylesheet" href="http://i.icomoon.io/public/83069ee1f8/BonVivantSite/style.css">
+    <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/foundation.css" />
     <link rel="stylesheet" href="/css/custom.css" /> 
 

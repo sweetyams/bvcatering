@@ -420,22 +420,23 @@ $('.contents .row').waypoint(function(direction) {
 
   // UPDATE CART ON CHANGE INPUT
   if($('.address').length){
-  $('input#address').on('input', function() { 
-    var address = $(this).val();
-    if(address === '' || address === ' '){
-      address = 'Address';
-    }
-    $(this).closest('.address').find('.set-address').html(address);
+    $('input#address').on('input', function() { 
+      var address = $(this).val();
+      if(address === '' || address === ' '){
+        address = 'Address';
+      }
+      $(this).closest('.address').find('.set-address').html(address);
 
-  });
-   $('input#phone').on('input', function() { 
-    var phone = $(this).val();
-     if(phone === '' || phone === ' '){
-      phone = 'Phone';
-    }
-   $(this).closest('.address').find('.set-phone').html(phone);
+    });
+     $('input#phone').on('input', function() { 
+      var phone = $(this).val();
+       if(phone === '' || phone === ' '){
+        phone = 'Phone';
+      }
+     $(this).closest('.address').find('.set-phone').html(phone);
 
-  });
+    });
+
   }
 
 // the selector will match all input controls of type :checkbox

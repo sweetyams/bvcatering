@@ -1,5 +1,3 @@
-
-
   <div class="overlay"><a class="button modal_close" href="#">Close</a>
     <div class="vert-out">
       <div class="vert-in">
@@ -134,5 +132,5 @@
     <script>
       $(document).foundation();
     </script>
-  </body>
+</body>
 </html>

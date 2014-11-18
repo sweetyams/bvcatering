@@ -26,24 +26,24 @@
                 <div class="hidetabs"></div>
 
                 <div id="credit" class="tabcontent front">
-                      <form>
-                        <div class="input">
-                          <label for="card-name"></label>
-                          <input type="text" id="card-name" placeholder="Name on Card">
-                        </div>
-                        <div class="input three-quarter">
-                          <label for="card-number"></label>
-                          <input type="text" id="card-number" placeholder="Card Number">
-                        </div><div class="input one-quarter">
-                          <label for="card-cvv"></label>
-                          <input type="text" id="card-cvv" placeholder="CVV">
-                        </div>
-                        <div class="input">
-                          <label for="card-expiry"></label>
-                          <input class="date" type="text" id="card-expiry" placeholder="Expiry Date">
-                        </div>
+                  <form>
+                    <div class="input">
+                      <label for="card-name"></label>
+                      <input type="text" id="card-name" placeholder="Name on Card">
+                    </div>
+                    <div class="input three-quarter">
+                      <label for="card-number"></label>
+                      <input type="text" id="card-number" placeholder="Card Number">
+                    </div><div class="input one-quarter">
+                      <label for="card-cvv"></label>
+                      <input type="text" id="card-cvv" placeholder="CVV">
+                    </div>
+                    <div class="input">
+                      <label for="card-expiry"></label>
+                      <input class="date" type="text" id="card-expiry" placeholder="Expiry Date">
+                    </div>
 
-                      </form>
+                  </form>
                 </div> <!-- end #signin -->
 
                 <div id="paypal" class="tabcontent">
@@ -51,24 +51,23 @@
                 </div> <!-- end #signup -->
 
                 <div id="cheque" class="tabcontent" data-amount="414.79">
-<!--                 <p class="center">Please make your cheque out as follows:</p>
- -->                <div class="cheque-example">
-                  <div class="name">Mrs. Jane Doe</div>
-                  <div class="num">101</div>
-                  <div class="thedate">Date</div>
-                  <div class="days"><span>D</span><span>D</span><span>M</span><span>M</span><span>Y</span><span>Y</span><span>Y</span><span>Y</span></div>
-                  <div class="orderof">To the <br/>order of</div>
-                  <div class="toname"><span>Le Bon Vivant</span></div>
-                  <div class="amount">$<span>0.00</span></div>
-                  <div class="cost">Cost</div>
-                  <div class="cents"><span class="cent">00</span><span class="hundred">100</span></div>
-                  <div class="bottom">
-                    <div class="re"><span>re</span><span class="retext">Catering</span></div><div class="per"><span>per</span></div>
+                  <!-- <p class="center">Please make your cheque out as follows:</p> --> 
+                  <div class="cheque-example">
+                    <div class="name">Mrs. Jane Doe</div>
+                    <div class="num">101</div>
+                    <div class="thedate">Date</div>
+                    <div class="days"><span>D</span><span>D</span><span>M</span><span>M</span><span>Y</span><span>Y</span><span>Y</span><span>Y</span></div>
+                    <div class="orderof">To the <br/>order of</div>
+                    <div class="toname"><span>Le Bon Vivant</span></div>
+                    <div class="amount">$<span>0.00</span></div>
+                    <div class="cost">Cost</div>
+                    <div class="cents"><span class="cent">00</span><span class="hundred">100</span></div>
+                    <div class="bottom">
+                      <div class="re"><span>re</span><span class="retext">Catering</span></div><div class="per"><span>per</span></div>
+                    </div>
                   </div>
-                </div>
                 </div> <!-- end #signup -->
 
-                
               </div><!--  end .listwrap -->
 
               <a href="/checkout/review" class="button success right">Next</a>

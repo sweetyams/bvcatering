@@ -24,15 +24,6 @@
             <p class="left"><span class="set-address">Address</span><br><span class="set-phone">Phone</span></p><a class="button right edit">Edit</a>
           
             <form>
-              <!-- <div class="input check">
-                <div class="box half">
-                  <input type="checkbox" name="addresstype" id="shipping" checked/>
-                  <label for="shipping">Shipping</label>
-                </div><div class="box half">
-                  <input type="checkbox" name="addresstype" id="billing" />
-                  <label for="billing">Billing</label>
-                </div>
-              </div> -->
               <hr>
               <div class="input half">
                 <label for="name-first"></label>

@@ -12,7 +12,7 @@
 			<div class="row">
 				<div class="small-12 medium-10 large-6 small-centered columns">
 					<div class="panel address">
-					<p class="left">5092 St. Clotilde<br><span>Shipping</span></p><a class="button cancel right">Delete</a><a class="button right edit">Edit</a>
+					<p class="left"><span class="set-address">Address</span><br><span class="set-phone">Phone</span></p><a class="button cancel right">Delete</a><a class="button right edit">Edit</a>
 					
 						<form>
 							<div class="input check">

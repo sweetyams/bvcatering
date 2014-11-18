@@ -24,14 +24,7 @@
               <th>Total</th>
             </tr>
           </thead>
-        <!--            <tfoot>
-            <tr>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-            </tr>
-          </tfoot> -->
+
           <tbody>
             <tr class="item">
               <td><span class="icon-close"></span></td>

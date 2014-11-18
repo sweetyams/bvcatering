@@ -1,5 +1,4 @@
-  
-    <!-- royalslider -->  
+      <!-- royalslider -->  
     <script src="/js/min/jquery.organictabs-min.js"></script>
     <script src="/js/min/foundation-min.js"></script>
     <script src="/js/min/jquery.matchHeight-min.js"></script>
