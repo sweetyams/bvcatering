@@ -66,9 +66,9 @@ $( document ).ready(function() {
 	// });
 	// var lasturl = "";
 
-	function loadPage(url) {
-	    $('#loadcontent .contentpanel').load(url);
-	}   
+	// function loadPage(url) {
+	//     $('#loadcontent .contentpanel').load(url);
+	// }   
 
 	$('.overlay').on('click', function(){
 		$('.overlay').removeClass('active order checkout-visible').fadeOut();
@@ -113,7 +113,7 @@ $( document ).ready(function() {
 			subtab = $this.data('subtab');
 
       var add = 40;
-      if(target == "#payment"){
+      if(target === "#payment"){
         add = 10;
       }
 		if(target,tab){
@@ -124,7 +124,7 @@ $( document ).ready(function() {
 				changeTab(target,tab, add);
 			}
 		} else{
-			console.log('error');
+			// console.log('error');
 		}
 
 		return false;
@@ -141,7 +141,7 @@ if($('.date').length){
             $( '.set-date' ).html(this.get());
         }
     }
-  })
+  });
 }
 
 if($('.date').length){
@@ -155,10 +155,10 @@ if($('.date').length){
             $( '.set-time' ).html(this.get());
         }
     }
-  })
+  });
 }
 
-
+  if($('#cheque').length){
   if ($('#cheque').attr('data-amount')){
     var cheque = $('#cheque'),
     amount = cheque.attr('data-amount'),
@@ -168,6 +168,7 @@ if($('.date').length){
     cheque.find('.amount span').html(amount);
     cheque.find('.cost').html(dollars);
     cheque.find('.cent').html(cents);
+  }
   }
 
   $('td.quantity input').wrap('<div></div>').after('<span class="icon-minus"></span><span class="icon-plus"></span>');
@@ -200,18 +201,20 @@ if($('.date').length){
 
   // ON CLICK - or +
   $(".quantity span[class^='icon-']").on('click', function(){
-    var direction = $(this).attr("class");
-    var input = $(this).parent().find("input");
-    var oldValue = input.val();
+    var direction = $(this).attr("class"),
+    input = $(this).parent().find("input"),
+    oldValue = input.val(),
+    newVal = oldValue;
+
     if(direction.slice(5) === 'plus'){
-      if(oldValue == ''){
+      if(oldValue === ''){
         newVal = 1;
       } else {
-        var newVal = parseFloat(oldValue) + 1;
+        newVal = parseFloat(oldValue) + 1;
       }
     } else {
       if (oldValue > 0) {
-        var newVal = parseFloat(oldValue) - 1;
+        newVal = parseFloat(oldValue) - 1;
       } else {
         newVal = 0;
       } 
@@ -223,14 +226,14 @@ if($('.date').length){
 
   // UPDATE CART ON CHANGE INPUT
   $('.quantity input').on('input', function() { 
-    var input = $(this)
+    var input = $(this);
     updateTotal(input);
     updateCart();
   });
 
   // SET INITIAL VALUES
   $('.cart').find('.quantity input').each (function() {
-    updateTotal($(this))
+    updateTotal($(this));
   });
   updateCart();
 
@@ -240,6 +243,18 @@ if($('.date').length){
 
 
   // SECTION FOR MENU
+
+  // UPDATE CART - RUNS THROUGH ALL TOTAL PRICE
+  function updateMenu(){
+    var sum = 0;
+    $('.item .amount input').each(function(){
+        sum += Number($(this).val());
+    });
+    console.log(sum);
+    $('.cart-amount').html(sum);
+
+  }
+
   // UPDATE ITEM ON CHANGE INPUT
   $('.info .amount').prepend('<span class="icon-minus"></span>');
   $('.info .amount').append('<span class="icon-plus"></span>');
@@ -248,18 +263,20 @@ if($('.date').length){
 
 
   $(".info .amount span[class^='icon-']").on('click', function(){
-    var direction = $(this).attr("class");
-    var input = $(this).parent().find("input");
-    var oldValue = input.val();
+    var direction = $(this).attr("class"),
+    input = $(this).parent().find("input"),
+    oldValue = input.val(),
+    newVal = oldValue;
+
     if(direction.slice(5) === 'plus'){
-      if(oldValue == ''){
+      if(oldValue === ''){
         newVal = 1;
       } else {
-        var newVal = parseFloat(oldValue) + 1;
+        newVal = parseFloat(oldValue) + 1;
       }
     } else {
       if (oldValue > 0) {
-        var newVal = parseFloat(oldValue) - 1;
+        newVal = parseFloat(oldValue) - 1;
       } else {
         newVal = 0;
       } 
@@ -268,24 +285,26 @@ if($('.date').length){
       $(this).closest('.item').removeClass('active');
     }
     input.val(newVal);
-
+    updateMenu();
   });
 
   $('.item input').focusout(function() {
-    if($(this).val() == '0'){
+    if($(this).val() === '0'){
       $(this).closest('.item').removeClass('active');
     }
+    updateMenu();
   });
 
   $('.item .button').on('click', function(){
     $(this).closest('.item').addClass('active').find('input').val(1);
+    updateMenu();
   });
 
 
   $('.item .info .button').each(function(){
     var item = $(this),
     val = item.attr('data-amount').split(".");
-    item.prepend('<span class="cost"><span class="dollar">$'+val[0]+'</span><span class="cents">.'+val[1]+' </span></span>')
+    item.prepend('<span class="cost"><span class="dollar">$'+val[0]+'</span><span class="cents">.'+val[1]+' </span></span>');
   });
 
 if($(".checkout-header").length){
@@ -312,6 +331,73 @@ $(function(){
   });//win func.
 });//ready func.
 }
+
+
+
+
+
+//SCROLLING ON HOME PAGE / EXPERIENCE ETC.
+$(document).ready(function(){
+  $(".anchorLink").click(function(e) {
+    e.preventDefault();
+    anchorScroll( $(this), $($(this).attr("href")), 800 );
+  });
+});
+ 
+function anchorScroll(this_obj, that_obj, base_speed) {
+
+  // var top = $(document).scrollTop();
+  var scroll;
+
+  // example of special control
+  // if (top < 600 && this_obj.attr("href") === '#departures'){
+  //     scroll = $('#departures').offset().top - 85;
+  //     scrollToElement(scroll, 800);
+  //     return;
+  // }
+  
+  // return scroll to top
+  if (this_obj.attr("href") === '#top'){
+    scrollToElement(0, "slow");
+    return;
+  }
+  
+  var this_offset = this_obj.offset(),
+      that_offset = that_obj.offset(),
+      offset_diff = Math.abs(that_offset.top - this_offset.top),
+      speed       = (offset_diff * base_speed) / 1000;
+
+  scroll = that_offset.top - 65;
+  scrollToElement(scroll, speed);
+
+}
+
+function scrollToElement(element, speed){
+  $("html,body").animate({
+    scrollTop: element
+  }, speed);
+}
+
+
+if ($('.menu-header').length > 0) { 
+$('.contents .row').waypoint(function(direction) {
+  var id = $(this).attr('id');
+  if(direction === 'down'){
+  $('.menu-header ul a').removeClass('active');
+  $('.menu-header ul a.'+id).addClass('active');
+}
+}, { offset: 90 });
+
+$('.contents .row').waypoint(function(direction) {
+  if(direction === 'up'){
+    var id =  $(this).waypoint('prev').attr('id');
+  $('.menu-header ul a').removeClass('active');
+  $('.menu-header ul a.'+id).addClass('active');
+}
+}, { offset: 160 });
+}
+
+
 
 // the selector will match all input controls of type :checkbox
 // and attach a click event handler 

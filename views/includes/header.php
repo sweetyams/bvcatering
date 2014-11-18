@@ -36,14 +36,10 @@
           </div>
           <div class="logo">
           </div>
-
           <div class="menu-cart">
-
-              <a class="popup modal changetab" data-target="#alltabs" href="#signtab" data-subtarget="#sign" data-subtab="#signin">Sign In</a>
-            <div class="cart">
-              <span class="icon-cart"></span>
-            </div>
+            <a class="popup modal changetab" data-target="#alltabs" href="#signtab" data-subtarget="#sign" data-subtab="#signin">Sign In</a><a href="/menu/main" class="cart"><span class="icon-cart"></span><span class="cart-amount"></span></a>
           </div>
+
           <ul class="signup">
             <li>
               <a class="modal changetab" data-target="#alltabs" href="#signtab" data-subtarget="#sign" data-subtab="#signup">Sign Up</a>

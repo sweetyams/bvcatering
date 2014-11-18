@@ -128,6 +128,17 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/img\/items\/item-1-large.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 235785,
+		"inputAbbreviatedPath": "\/img\/items\/item-1-large.jpg",
+		"outputAbbreviatedPath": "\/img\/items\/item-1-large.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/items\/item-1.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -139,13 +150,24 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/img\/items\/item-2.png": {
-		"fileType": 32768,
+	"\/img\/items\/item-2.jpg": {
+		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 0,
-		"inputAbbreviatedPath": "\/img\/items\/item-2.png",
-		"outputAbbreviatedPath": "\/img\/items\/item-2.png",
+		"initialSize": 167237,
+		"inputAbbreviatedPath": "\/img\/items\/item-2.jpg",
+		"outputAbbreviatedPath": "\/img\/items\/item-2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/items\/item-3.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 216367,
+		"inputAbbreviatedPath": "\/img\/items\/item-3.jpg",
+		"outputAbbreviatedPath": "\/img\/items\/item-3.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -302,6 +324,17 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/js\/addon\/waypoints.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/addon\/waypoints.js",
+		"outputAbbreviatedPath": "\/js\/min\/waypoints-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 1,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/js\/custom.js": {
 		"fileType": 64,
 		"ignore": 0,
@@ -429,6 +462,17 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/js\/min\/towords-min.js",
 		"outputAbbreviatedPath": "\/js\/min\/min\/towords-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/min\/waypoints-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/min\/waypoints-min.js",
+		"outputAbbreviatedPath": "\/js\/min\/min\/waypoints-min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -1526,6 +1570,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/views\/includes\/sidebar.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/views\/menu\/item.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/views\/menu\/item.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0

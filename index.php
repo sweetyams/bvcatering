@@ -92,6 +92,10 @@ Flight::route('/menu/main', function(){
   Flight::render('menu/main.php', array('title'=>'Menu','bodyClass' => 'menu'));
 });
 
+Flight::route('/menu/main/item', function(){
+  Flight::render('menu/item.php', array('title'=>'Item','bodyClass' => 'single-item'));
+});
+
 
 Flight::start();
 

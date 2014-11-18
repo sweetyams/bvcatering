@@ -3,7 +3,7 @@ $sidebar-closed : 70px;
 body.admin{
 	width: 100%;
 }
-body.order{
+body.order, body.single-item{
 	background: $grey-5;
 	padding-top: 40px;
 }
@@ -13,14 +13,12 @@ body.checkout .contents{
   padding-bottom: 100px;
   padding-top: 80px;
 }
-body.menu{
-  ::selection {
-    background: none;
-  }
-  ::-moz-selection {
-    background: none;
-  }
-}
+
+// .amount{
+//   ::selection{
+//     background: red;
+//   }
+// }
 body.menu .contents{
   background: $grey-5;
   padding-top: 80px;
@@ -29,6 +27,7 @@ body.menu .contents{
     color: $grey-70;
   }
 }
+
 body.admin{
 	header .row, footer .row{
 		max-width:100%;
@@ -104,68 +103,93 @@ header{
 		position: relative;
 		padding: 0 20px;
 	}
-	a{
-		font-size: 12px;
-		color:white;
-		text-transform: uppercase;
-		font-weight: 500;
-		letter-spacing: .1em;
-	}
+  .menu-left{
+    float: left;
+  }
+
 	ul{
-		margin-top: 25px;
 		li{
 			display: inline-block;
-			padding: 0 10px;
-
-		}
-	}
-	.menu-cart{
-		height:50px;
-		position: absolute;
-		top:15px;
-		right:30px;
-		line-height: 49px;
-		width:auto;
-		a{
-			display: block;
-			height: 100%;
-			position: relative;
-			top:0;
-			right:50px;
-			min-width: 50px;
-			padding: 0 20px;
-			border-bottom-left-radius: 2px;
-			border-top-left-radius: 2px;
-			color:$black;
-			background: $grey-10;
-			&:hover{
-				background: white;
-			}
-		}
-		.cart{
-			display: block;
-			height: 100%;
-			background: $blue;
-			position: absolute;
-			top:0;
-			right:0;
-			min-width: 50px;
-			border-bottom-right-radius: 2px;
-			border-top-right-radius: 2px;
-			text-align: center;
-
-			span{
-				color:white;
-				font-size: 32px;
-				line-height: 48px;
-			}
-		}
-
-		&:hover{
-
+      a{
+        font-size: 12px;
+        color:white;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: .1em;
+        display: inline-block;
+        line-height: 80px;
+        padding: 0 10px;
+        &:hover{
+          color: $grey-50;
+        }
+      }
 		}
 	}
 }
+.menu-cart{
+	height:50px;
+	position: absolute;
+	top:15px;
+	right:30px;
+	width:auto;
+	a{
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .1em;
+    position: relative;
+    min-width: 50px;
+    color: $black;
+    background: $grey-10;
+    margin: 0;
+    display: inline-block;
+		&:hover{
+			background: white;
+		}
+	}
+  .changetab{
+    line-height: 50px;
+    padding: 0 20px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    height: 50px;
+    vertical-align: top;
+  }
+	.cart{
+		height: 100%;
+		background: $blue;
+		min-width: 50px;
+		border-bottom-right-radius: 2px;
+		border-top-right-radius: 2px;
+		text-align: center;
+    height: 50px;
+    vertical-align: top;
+    padding-left: 40px;
+    padding-right: 10px;
+    &:hover{
+      background: $dark-blue;
+    }
+    .icon-cart{
+      position: absolute;
+      left: 8px;
+      top: 0;
+      font-size: 32px;
+      color:white;
+      line-height: 50px;
+    }
+		.cart-amount{
+			font-size: 14px;
+      line-height: 50px;
+      color:white;
+			letter-spacing: .02em;
+		}
+	}
+
+	&:hover{
+
+	}
+}
+
 
 .container{
 	margin-left: $sidebar;
@@ -636,8 +660,9 @@ table {
 }
 
 .signup{
-	position: absolute;
-	right: 180px;
+	position: relative;
+  float: right;
+	margin-right: 190px;
 	top: 0;
 }
 .moreinfo{
@@ -862,6 +887,17 @@ table {
 	}
 }
 .menu-header{
+  .menu-cart{
+    opacity: 0;
+    top:9px;
+    @include transition(opacity,.5s,ease);
+    a.changetab:hover{
+      background: $grey-5;
+    }
+  }
+  &.sticky .menu-cart{
+    opacity: 1;
+  }
 
   text-align: left;
   .row{
@@ -1293,7 +1329,6 @@ table {
 }
 
 .item{
-  cursor: pointer;
   padding: 0.9375rem 0;
   .image{
     height: 200px;
@@ -1301,6 +1336,7 @@ table {
     border-top-right-radius: 2px;
     text-align: center;
     position: relative;
+    display: block;
     .over{
       background: $green;
       opacity: 0;
@@ -1409,5 +1445,10 @@ table {
     .info-holder .amount{
       top:0;
     }
+  }
+}
+.single-item{
+  .menu-cart{
+    top:2px;
   }
 }

@@ -56,7 +56,7 @@ form{
 //RESETS
 a{
   color:$colour-primary;
-  @include transition(color,300ms, ease);
+  @include transition(all,400ms, ease);
   &:hover{
     color:darken($colour-primary,8%);
   }
@@ -316,7 +316,7 @@ textarea{
     color: $menu;
   }
   &.large{
-    padding: 15px 20px;
+    padding: 16px 20px;
     font-size: 11px;
   }
 

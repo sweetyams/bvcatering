@@ -60,8 +60,8 @@ form {
 
 a {
   color: #232323;
-  -webkit-transition: color 300ms ease;
-  transition: color 300ms ease;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
 }
 a:hover {
   color: #0f0f0f;
@@ -382,7 +382,7 @@ textarea {
   border-color: #f2f2f2;
 }
 .button.large {
-  padding: 15px 20px;
+  padding: 16px 20px;
   font-size: 11px;
 }
 .button.modal_close {
@@ -403,7 +403,7 @@ body.admin {
   width: 100%;
 }
 
-body.order {
+body.order, body.single-item {
   background: #f2f2f2;
   padding-top: 40px;
 }
@@ -413,17 +413,6 @@ body.checkout .contents {
   min-height: calc(100% - 144px);
   padding-bottom: 100px;
   padding-top: 80px;
-}
-
-body.menu ::-moz-selection {
-  background: none;
-}
-
-body.menu ::selection {
-  background: none;
-}
-body.menu ::-moz-selection {
-  background: none;
 }
 
 body.menu .contents {
@@ -505,60 +494,84 @@ header .row {
   position: relative;
   padding: 0 20px;
 }
-header a {
+header .menu-left {
+  float: left;
+}
+header ul li {
+  display: inline-block;
+}
+header ul li a {
   font-size: 12px;
   color: white;
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: .1em;
-}
-header ul {
-  margin-top: 25px;
-}
-header ul li {
   display: inline-block;
+  line-height: 80px;
   padding: 0 10px;
 }
-header .menu-cart {
+header ul li a:hover {
+  color: gray;
+}
+
+.menu-cart {
   height: 50px;
   position: absolute;
   top: 15px;
   right: 30px;
-  line-height: 49px;
   width: auto;
 }
-header .menu-cart a {
-  display: block;
-  height: 100%;
+.menu-cart a {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: .1em;
   position: relative;
-  top: 0;
-  right: 50px;
   min-width: 50px;
-  padding: 0 20px;
-  border-bottom-left-radius: 2px;
-  border-top-left-radius: 2px;
   color: #232323;
   background: #e6e6e6;
+  margin: 0;
+  display: inline-block;
 }
-header .menu-cart a:hover {
+.menu-cart a:hover {
   background: white;
 }
-header .menu-cart .cart {
-  display: block;
+.menu-cart .changetab {
+  line-height: 50px;
+  padding: 0 20px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  height: 50px;
+  vertical-align: top;
+}
+.menu-cart .cart {
   height: 100%;
   background: #85BFCD;
-  position: absolute;
-  top: 0;
-  right: 0;
   min-width: 50px;
   border-bottom-right-radius: 2px;
   border-top-right-radius: 2px;
   text-align: center;
+  height: 50px;
+  vertical-align: top;
+  padding-left: 40px;
+  padding-right: 10px;
 }
-header .menu-cart .cart span {
-  color: white;
+.menu-cart .cart:hover {
+  background: #61acbe;
+}
+.menu-cart .cart .icon-cart {
+  position: absolute;
+  left: 8px;
+  top: 0;
   font-size: 32px;
-  line-height: 48px;
+  color: white;
+  line-height: 50px;
+}
+.menu-cart .cart .cart-amount {
+  font-size: 14px;
+  line-height: 50px;
+  color: white;
+  letter-spacing: .02em;
 }
 
 .container {
@@ -1023,8 +1036,9 @@ table tbody tr td {
 }
 
 .signup {
-  position: absolute;
-  right: 180px;
+  position: relative;
+  float: right;
+  margin-right: 190px;
   top: 0;
 }
 
@@ -1250,6 +1264,18 @@ table tbody tr td {
 
 .menu-header {
   text-align: left;
+}
+.menu-header .menu-cart {
+  opacity: 0;
+  top: 9px;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+.menu-header .menu-cart a.changetab:hover {
+  background: #f2f2f2;
+}
+.menu-header.sticky .menu-cart {
+  opacity: 1;
 }
 .menu-header .row {
   padding: 0;
@@ -1699,7 +1725,6 @@ table tbody tr td {
 }
 
 .item {
-  cursor: pointer;
   padding: 0.9375rem 0;
 }
 .item .image {
@@ -1708,6 +1733,7 @@ table tbody tr td {
   border-top-right-radius: 2px;
   text-align: center;
   position: relative;
+  display: block;
 }
 .item .image .over {
   background: #6AC892;
@@ -1817,6 +1843,10 @@ table tbody tr td {
 }
 .item.active .info-holder .amount {
   top: 0;
+}
+
+.single-item .menu-cart {
+  top: 2px;
 }
 
 @media only screen and (max-width: 600px) {
