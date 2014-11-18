@@ -3,7 +3,7 @@
   <div class="row">
     <div class="columns small-centered small-12 medium-10">
 
-      <a href="/menu" class="button left">Continue Shopping</a>
+      <a href="/menu/main" class="button left">Continue Shopping</a>
       <a class="button success right modal changetab checkout" data-target="#alltabs" href="#signtab" data-subtarget="#sign" data-subtab="#signup">Checkout</a>
     </div>
   </div>

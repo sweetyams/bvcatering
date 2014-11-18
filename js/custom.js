@@ -40,6 +40,12 @@ $( document ).ready(function() {
 			$(this).closest('.address').children('.edit').fadeIn();
 		}
 	});
+  $('.address .save').on('click', function(){
+    if($(this).closest('.address').hasClass('active')){
+      $(this).closest('.address').removeClass('active');
+      $(this).closest('.address').children('.edit').fadeIn();
+    }
+  });
 
 	// MODALS
 	$('.modal').on('click', function(){
@@ -104,6 +110,7 @@ $( document ).ready(function() {
 	tabHeight('#sign','#signin', 40);
 	tabHeight('#alltabs','#signtab', 40);
   tabHeight('#payment','#credit',0);
+  tabHeight('#item-tabs','#description',0);
 	
 	$('.changetab').on('click', function(){
 		var $this = $(this),
@@ -115,6 +122,8 @@ $( document ).ready(function() {
       var add = 40;
       if(target === "#payment"){
         add = 10;
+      } else if (target === "#sign-tabs"){
+        add = 0;
       }
 		if(target,tab){
 			if(subtarget){
@@ -251,13 +260,19 @@ if($('.date').length){
         sum += Number($(this).val());
     });
     console.log(sum);
-    $('.cart-amount').html(sum);
+    if(sum === 0){
+      $('.cart-amount').removeClass('active').html("");
+    } else {
+      $('.cart-amount').addClass('active').html(sum);
+    }
 
   }
 
   // UPDATE ITEM ON CHANGE INPUT
   $('.info .amount').prepend('<span class="icon-minus"></span>');
   $('.info .amount').append('<span class="icon-plus"></span>');
+
+
 
   $('.amount span').mousedown(function(e){ e.preventDefault(); });
 
@@ -295,13 +310,13 @@ if($('.date').length){
     updateMenu();
   });
 
-  $('.item .button').on('click', function(){
+  $('.item .button.add').on('click', function(){
     $(this).closest('.item').addClass('active').find('input').val(1);
     updateMenu();
   });
 
 
-  $('.item .info .button').each(function(){
+  $('.item .info .button.add').each(function(){
     var item = $(this),
     val = item.attr('data-amount').split(".");
     item.prepend('<span class="cost"><span class="dollar">$'+val[0]+'</span><span class="cents">.'+val[1]+' </span></span>');
@@ -397,7 +412,31 @@ $('.contents .row').waypoint(function(direction) {
 }, { offset: 160 });
 }
 
+  if($('.stars').length){
+  $('.stars').append('<span class="star1"></span><span class="star2"></span><span class="star3"></span><span class="star4"></span><span class="star5"></span>');
+}
 
+
+
+  // UPDATE CART ON CHANGE INPUT
+  if($('.address').length){
+  $('input#address').on('input', function() { 
+    var address = $(this).val();
+    if(address === '' || address === ' '){
+      address = 'Address';
+    }
+    $(this).closest('.address').find('.set-address').html(address);
+
+  });
+   $('input#phone').on('input', function() { 
+    var phone = $(this).val();
+     if(phone === '' || phone === ' '){
+      phone = 'Phone';
+    }
+   $(this).closest('.address').find('.set-phone').html(phone);
+
+  });
+  }
 
 // the selector will match all input controls of type :checkbox
 // and attach a click event handler 

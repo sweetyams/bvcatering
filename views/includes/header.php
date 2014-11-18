@@ -30,14 +30,14 @@
 
           <div class="menu-left">
             <ul>
-              <li><a href="/menu">Our Menu</a></li>
+              <li><a href="/menu/main">Our Menu</a></li>
               <li><a href="/how-it-works">How it works</a></li>
             </ul>
           </div>
           <div class="logo">
           </div>
           <div class="menu-cart">
-            <a class="popup modal changetab" data-target="#alltabs" href="#signtab" data-subtarget="#sign" data-subtab="#signin">Sign In</a><a href="/menu/main" class="cart"><span class="icon-cart"></span><span class="cart-amount"></span></a>
+            <a class="popup modal changetab" data-target="#alltabs" href="#signtab" data-subtarget="#sign" data-subtab="#signin">Sign In</a><a href="/checkout/cart" class="cart"><span class="icon-cart"></span><span class="cart-amount"></span></a>
           </div>
 
           <ul class="signup">

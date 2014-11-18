@@ -12,7 +12,7 @@
 			<div class="row">
 				<div class="small-12 medium-10 large-6 small-centered columns">
 					<div class="panel review">
-					<p class="left">Green Juice</p><div class="stars stars-2"><span class="star1"></span><span class="star2"></span><span class="star3"></span><span class="star4"></span><span class="star5"></span></div><a class="button cancel right">Delete</a><a class="button right edit">View</a>
+					<p class="left">Green Juice</p><div class="stars stars-2"></div><a class="button cancel right">Delete</a><a class="button right edit">View</a>
 
 					</div>
 

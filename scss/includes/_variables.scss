@@ -28,6 +28,15 @@ $grey-90 : darken(white,90%);
 $black : #232323;
 $menu: #333333;
 
+
+
+$facebook : #3F5073;
+$twitter : #5498C9;
+$pinterest : #AC2A30;
+$light-facebook : lighten($facebook,10%);
+$light-twitter : lighten($twitter,10%);
+$light-pinterest : lighten($pinterest,10%);
+
 @mixin brandon{
 font-family: "brandon-grotesque", BrandonText-Regular, "proxima-nova", sans-serif;
 font-style: normal;

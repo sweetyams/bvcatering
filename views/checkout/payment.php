@@ -4,7 +4,7 @@
 
   <div class="row">
 
-    <div class="small-12 medium-11 large-10 small-centered columns">
+    <div class="small-12 medium-9 large-6 small-centered columns">
 
       <div class="panel white contentpanel cart">
 
@@ -14,7 +14,7 @@
         <hr>
 
         <div class="row">
-          <div class="small-12 medium-9 large-8 small-centered columns">
+          <div class="small-12 medium-12 large-12 small-centered columns">
             <div class="tabs payment">
 
               <div class="button-group payment toggle nav">

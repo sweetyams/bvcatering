@@ -334,3 +334,23 @@ textarea{
     }
   }
 }
+
+.social{
+  margin-top: 20px;
+  .button{
+    font-size: 14px;
+    padding:0;
+    line-height: 48px;
+    min-width: 100px;
+  }
+}
+
+.facebook{
+  @include button($facebook, $light-facebook);
+}
+.twitter{
+  @include button($twitter, $light-twitter);
+}
+.pinterest{
+  @include button($pinterest, $light-pinterest);
+}

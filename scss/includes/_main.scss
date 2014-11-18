@@ -7,6 +7,9 @@ body.order, body.single-item{
 	background: $grey-5;
 	padding-top: 40px;
 }
+body.single-item{
+  padding-top:0px;
+}
 body.checkout .contents{
 	background: $grey-5;
 	min-height: calc(100% - 144px);
@@ -182,6 +185,10 @@ header{
       line-height: 50px;
       color:white;
 			letter-spacing: .02em;
+      @include transition(padding,.5s,ease);
+      &.active{
+        padding: 0 10px 0 6px;
+      }
 		}
 	}
 
@@ -418,7 +425,7 @@ table {
 		line-height: 21px;
 		margin-bottom: 0;
 	}
-	p span.set-type, p span.set-time{
+	p span.set-phone, p span.set-time{
 		font-size: 12px;
 		color: $grey-40;
 	}
@@ -506,9 +513,7 @@ table {
     background: white;
     display: block;
 	z-index: -1000;
-	#loadcontent{
-		display: none;
-	}
+
 	h5.checkout{
 		margin-bottom:20px;
 		display: none;
@@ -525,9 +530,6 @@ table {
 		#signtabs{
 			position: absolute;
 			z-index: -100;
-		}
-		#loadcontent{
-			display: block;
 		}
 	}
     &.active{
@@ -674,6 +676,11 @@ table {
 }
 .modaloption{
 	opacity: 0;
+}
+
+.itempanel{
+  text-align: left;
+
 }
 
 .contentpanel{
@@ -952,21 +959,23 @@ table {
       padding: 0 10px;
       display: inline-block;
     }
-
-    a::before {
+    a.active{
       color: $grey-60;
-      content: attr(data-hover);
-      position: absolute;
-      @include transition(all,.5s,ease);
     }
-    a.active::before,
-    a:hover::before,
-    a:focus::before {
-      -webkit-transform: scale(.5);
-      -moz-transform: scale(.5);
-      transform: scale(.5);
-      opacity: 0;
-    }
+    // a::before {
+    //   color: $grey-60;
+    //   content: attr(data-hover);
+    //   position: absolute;
+    //   @include transition(all,.5s,ease);
+    // }
+    // a.active::before,
+    // a:hover::before,
+    // a:focus::before {
+    //   -webkit-transform: scale(.5);
+    //   -moz-transform: scale(.5);
+    //   transform: scale(.5);
+    //   opacity: 0;
+    // }
     a:hover, a:focus{
       color:rgba(133,191,205,1);
     }
@@ -1328,127 +1337,245 @@ table {
   }
 }
 
-.item{
-  padding: 0.9375rem 0;
-  .image{
-    height: 200px;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    text-align: center;
-    position: relative;
-    display: block;
-    .over{
-      background: $green;
-      opacity: 0;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      top:0;
-      left:0;
-      @include transition(all,.5s,ease);
+  .item{
+    padding: 0.9375rem 0;
+    .image{
+      height: 200px;
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+      text-align: center;
+      position: relative;
+      display: block;
+      .over{
+        background: $green;
+        opacity: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top:0;
+        left:0;
+        @include transition(all,.5s,ease);
+      }
+      .button{
+        background: white;
+        max-width: 80%;
+      }
     }
-    .button{
+    .info{
       background: white;
-      max-width: 80%;
+      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px;
+      padding: 20px 10px;
+      text-align: center;
+      .tags{
+        color: $green;
+        text-transform: uppercase;
+        font-size: 10px;
+        font-weight: 600;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      .info-holder{
+        overflow: hidden;
+        height: 48px;
+        width:100%;
+        display: block;
+        position: relative;
+      }
+      .button{
+        padding: 12px 14px 12px 64px; 
+        position: absolute;
+        font-size: 12px;
+        letter-spacing: .02em;
+        width:200px;
+        margin-left: -100px;
+        border: 1px solie $dark-green;
+        @include transition(all,.5s,ease);
+        top:0;
+          .cost{
+          position: absolute;
+          background: $dark-green;
+          height: 100%;
+          left: 0;
+          top: 0;
+          border-top-left-radius: 2px;
+          border-bottom-left-radius: 2px;
+          line-height: 43px;
+          font-size: 15px;
+          padding: 0 28px 0 10px;
+          .dollar{
+            font-weight: 100;
+          }
+          .cents{
+            font-size: 8px;
+            position: absolute;
+            top: -1px;
+          }
+        }     
+      }
+      .amount{
+        text-align: center;
+        position: absolute;
+        width:100%;
+        height: 45px;
+        top:60px;
+        @include transition(all,.5s,ease);
+        input{
+          width:60px;
+          border-radius: 2px;
+          background: $grey-5;
+          height: 44px;
+          display: inline-block;
+          vertical-align: top;
+          margin: 0 10px;
+          text-align: center;
+        }
+        span{
+          display: inline-block;
+          background: $red;
+          height: 44px;
+          line-height: 44px;
+          width: 44px;
+          border-radius: 2px;
+          color: white;
+        }
+        span.icon-plus{
+          background: $green;
+        }
+      }
+    }
+    &.active{
+      .image .over{
+        opacity: .6;
+      }
+      .info-holder .button{
+        top:-50px;
+      }
+      .info-holder .amount{
+        top:0;
+      }
     }
   }
-  .info{
-    background: white;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    padding: 20px 10px;
-    text-align: center;
-    .tags{
-      color: $green;
+.single-item{
+  .menu-cart{
+    top:2px;
+    right:0.9375rem;
+  }
+  .item{
+    .image{
+      height: auto;
+    }
+    .image img{
+      margin-top: 20px;
+      border-radius: 2px;
+      border: 1px solid $grey-10;
+    }
+    .info{
+      position: relative;
+      text-align: left;
+      padding: 20px;
+      .tags{
+        text-align: left;
+      }
+      .button{
+        margin-left: 0;
+      }
+      .amount{
+        text-align: left;
+        span{
+          text-align: center;
+        }
+      }
+      .stars{
+        right: 20px;
+        top: 15px;
+      }
+    }
+    .button-group{
+      width: 100%;
+      border-radius: 0;
+      overflow: hidden;
+      height: 50px;
+      padding-top: 5px;
+      text-align: left;
+      padding-left: 20px;
+      background: $grey-5;
+      div{
+        display: inline-block;
+      }
+      .button{
+        height: 60px;
+        padding-top: 12px;
+      }
+      .button:not(.current){
+        background: $grey-5;
+        border-color: $grey-5;
+        &:hover{
+          background: $grey-10;
+          border-color : $grey-10;
+        }
+      }
+    }
+    .tabs .list-wrap{
+      padding:0;
+    }
+    .tabcontent{
+      padding: 14px 20px 0px 20px;
+    }
+    .special{
+      color: $blue;
       text-transform: uppercase;
       font-size: 10px;
       font-weight: 600;
       width: 100%;
-      text-align: center;
+      text-align: left;
       margin-bottom: 10px;
     }
-    .info-holder{
-      overflow: hidden;
-      height: 48px;
-      width:100%;
-      display: block;
-      position: relative;
+    .ingredients{
+      font-size: 13px;
+      -webkit-column-count: 3;
+      -moz-column-count: 3;
+      column-count: 3;
     }
-    .button{
-      padding: 12px 14px 12px 64px; 
-      position: absolute;
-      font-size: 12px;
-      letter-spacing: .02em;
-      width:200px;
-      margin-left: -100px;
-      @include transition(all,.5s,ease);
-      top:0;
-        .cost{
-        position: absolute;
-        background: $dark-green;
-        height: 100%;
-        left: 0;
-        top: 0;
-        border-top-left-radius: 2px;
-        border-bottom-left-radius: 2px;
-        line-height: 43px;
-        font-size: 15px;
-        padding: 0 28px 0 10px;
-        .dollar{
-          font-weight: 100;
+    .reviews{
+      li{
+        border-bottom: 1px solid $grey-5;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        position: relative;
+        p{
+          margin-bottom: 4px;
         }
-        .cents{
-          font-size: 8px;
-          position: absolute;
-          top: -1px;
+        p.text{
+          padding-right: 160px;
         }
-      }     
-    }
-    .amount{
-      text-align: center;
-      position: absolute;
-      width:100%;
-      height: 45px;
-      top:60px;
-      @include transition(all,.5s,ease);
-      input{
-        width:60px;
-        border-radius: 2px;
-        background: $grey-5;
-        height: 44px;
-        display: inline-block;
-        vertical-align: top;
-        margin: 0 10px;
-        text-align: center;
+        p.writer{
+          text-transform: uppercase;
+          font-size: 11px;
+          font-weight: 600;
+          width: 100%;
+          text-align: left;
+          
+          color: $grey-50;
+          span{
+            margin-left: 10px;
+            color: $grey-20
+          }
+        }
+        .stars{
+          right: 20px;
+          top: 18px;
+        }
       }
-      span{
-        display: inline-block;
-        background: $red;
-        height: 44px;
-        line-height: 44px;
-        width: 44px;
-        border-radius: 2px;
-        color: white;
-      }
-      span.icon-plus{
-        background: $green;
+      .button.white{
+        color:$grey-50;
       }
     }
+
   }
-  &.active{
-    .image .over{
-      opacity: .6;
-    }
-    .info-holder .button{
-      top:-50px;
-    }
-    .info-holder .amount{
-      top:0;
-    }
-  }
-}
-.single-item{
-  .menu-cart{
-    top:2px;
+
+  .panel.white{
+    padding: 0px;
   }
 }

@@ -55,7 +55,7 @@
 								<textarea type="textarea" id="delivery" placeholder="Delivery Notes"></textarea>
 							</div>	
 							<a class="button cancel">Cancel</a>
-							<a class="button success">Save</a>
+							<a class="button save success">Save</a>
 
 						</form>
 

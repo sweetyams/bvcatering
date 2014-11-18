@@ -18,7 +18,7 @@
           <div class="info">
             <div class="tags">Organic, Low Carb</div>
             <div class="info-holder">
-              <a class="button success" data-amount="9.00">Add to Basket</a>
+              <a class="button add success" data-amount="9.00">Add to Basket</a>
               <div class="amount"><input maxlength="2" type="text" value="0"></div>
             </div>
           </div>
@@ -38,7 +38,7 @@
           <div class="info">
             <div class="tags">Organic, Low Carb</div>
             <div class="info-holder">
-              <a class="button success" data-amount="9.00">Add to Basket</a>
+              <a class="button add success" data-amount="9.00">Add to Basket</a>
               <div class="amount"><input maxlength="2" type="text" value="0"></div>
             </div>
           </div>
@@ -57,7 +57,7 @@
           <div class="info">
             <div class="tags">Organic, Low Carb</div>
             <div class="info-holder">
-              <a class="button success" data-amount="9.00">Add to Basket</a>
+              <a class="button add success" data-amount="9.00">Add to Basket</a>
               <div class="amount"><input maxlength="2" type="text" value="0"></div>
             </div>
           </div>
@@ -82,7 +82,7 @@
           <div class="info">
             <div class="tags">Organic, Low Carb</div>
             <div class="info-holder">
-              <a class="button success" data-amount="12.45">Add to Basket</a>
+              <a class="button add success" data-amount="12.45">Add to Basket</a>
               <div class="amount"><input maxlength="2" type="text" value="0"></div>
             </div>
           </div>
@@ -101,7 +101,7 @@
           <div class="info">
             <div class="tags">Organic, Low Carb</div>
             <div class="info-holder">
-              <a class="button success" data-amount="9.00">Add to Basket</a>
+              <a class="button add success" data-amount="9.00">Add to Basket</a>
               <div class="amount"><input maxlength="2" type="text" value="0"></div>
             </div>
           </div>
@@ -120,7 +120,7 @@
           <div class="info">
             <div class="tags">Organic, Low Carb</div>
             <div class="info-holder">
-              <a class="button success" data-amount="7.00">Add to Basket</a>
+              <a class="button add success" data-amount="7.00">Add to Basket</a>
               <div class="amount"><input maxlength="2" type="text" value="0"></div>
             </div>
           </div>
@@ -144,7 +144,7 @@
           <div class="info">
             <div class="tags">Organic, Low Carb</div>
             <div class="info-holder">
-              <a class="button success" data-amount="12.45">Add to Basket</a>
+              <a class="button add success" data-amount="12.45">Add to Basket</a>
               <div class="amount"><input maxlength="2" type="text" value="0"></div>
             </div>
           </div>
@@ -163,7 +163,7 @@
           <div class="info">
             <div class="tags">Organic, Low Carb</div>
             <div class="info-holder">
-              <a class="button success" data-amount="9.00">Add to Basket</a>
+              <a class="button add success" data-amount="9.00">Add to Basket</a>
               <div class="amount"><input maxlength="2" type="text" value="0"></div>
             </div>
           </div>
@@ -182,7 +182,7 @@
           <div class="info">
             <div class="tags">Organic, Low Carb</div>
             <div class="info-holder">
-              <a class="button success" data-amount="7.00">Add to Basket</a>
+              <a class="button add success" data-amount="7.00">Add to Basket</a>
               <div class="amount"><input maxlength="2" type="text" value="0"></div>
             </div>
           </div>
@@ -207,7 +207,7 @@
           <div class="info">
             <div class="tags">Organic, Low Carb</div>
             <div class="info-holder">
-              <a class="button success" data-amount="12.45">Add to Basket</a>
+              <a class="button add success" data-amount="12.45">Add to Basket</a>
               <div class="amount"><input maxlength="2" type="text" value="0"></div>
             </div>
           </div>
@@ -226,7 +226,7 @@
           <div class="info">
             <div class="tags">Organic, Low Carb</div>
             <div class="info-holder">
-              <a class="button success" data-amount="9.00">Add to Basket</a>
+              <a class="button add success" data-amount="9.00">Add to Basket</a>
               <div class="amount"><input maxlength="2" type="text" value="0"></div>
             </div>
           </div>
@@ -245,7 +245,7 @@
           <div class="info">
             <div class="tags">Organic, Low Carb</div>
             <div class="info-holder">
-              <a class="button success" data-amount="7.00">Add to Basket</a>
+              <a class="button add success" data-amount="7.00">Add to Basket</a>
               <div class="amount"><input maxlength="2" type="text" value="0"></div>
             </div>
           </div>
@@ -270,7 +270,7 @@
           <div class="info">
             <div class="tags">Organic, Low Carb</div>
             <div class="info-holder">
-              <a class="button success" data-amount="12.45">Add to Basket</a>
+              <a class="button add success" data-amount="12.45">Add to Basket</a>
               <div class="amount"><input maxlength="2" type="text" value="0"></div>
             </div>
           </div>
@@ -289,7 +289,7 @@
           <div class="info">
             <div class="tags">Organic, Low Carb</div>
             <div class="info-holder">
-              <a class="button success" data-amount="9.00">Add to Basket</a>
+              <a class="button add success" data-amount="9.00">Add to Basket</a>
               <div class="amount"><input maxlength="2" type="text" value="0"></div>
             </div>
           </div>
@@ -308,7 +308,7 @@
           <div class="info">
             <div class="tags">Organic, Low Carb</div>
             <div class="info-holder">
-              <a class="button success" data-amount="7.00">Add to Basket</a>
+              <a class="button add success" data-amount="7.00">Add to Basket</a>
               <div class="amount"><input maxlength="2" type="text" value="0"></div>
             </div>
           </div>

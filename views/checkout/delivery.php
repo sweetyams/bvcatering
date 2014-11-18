@@ -4,7 +4,7 @@
 
   <div class="row">
 
-  	<div class="small-12 medium-11 large-10 small-centered columns">
+  	<div class="small-12 medium-9 large-6 small-centered columns">
 
     	<div class="panel white contentpanel cart">
 
@@ -15,13 +15,13 @@
 
 
       <div class="row">
-        <div class="small-12 medium-10 large-8 small-centered columns textleft">
+        <div class="small-12 medium-12 large-12 small-centered columns textleft">
           <div class="panel address">
             <!-- <div class="box isactive check">
               <input type="checkbox" name="addresstype" id="isactive" checked/>
               <label for="isactive">Selected</label>
             </div> -->
-            <p class="left"><span class="set-address">Address<br><span class="set-type">Phone</span></p><a class="button right edit">Edit</a>
+            <p class="left"><span class="set-address">Address</span><br><span class="set-phone">Phone</span></p><a class="button right edit">Edit</a>
           
             <form>
               <!-- <div class="input check">
@@ -65,7 +65,7 @@
                 <textarea type="textarea" id="delivery" placeholder="Delivery Notes"></textarea>
               </div>  
               <a class="button cancel">Cancel</a>
-              <a class="button success">Save</a>
+              <a class="button save success">Save</a>
 
             </form>
 
@@ -93,7 +93,7 @@
                 <textarea type="textarea" id="datenotes" placeholder="Notes about your event"></textarea>
               </div>  
               <a class="button cancel">Cancel</a>
-              <a class="button success">Save</a>
+              <a class="button success save">Save</a>
 
             </form>
 

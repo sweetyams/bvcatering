@@ -16,6 +16,33 @@
     background-size: 100%;
   }
 }
+.panel.white{
+  padding: 20px 10px;
+}
+
+.button-group .button, .button-group.payment div{
+  display: block;
+}
+
+.menu-header ul{
+  margin: 0;
+  margin-top: 10px;
+  text-align: left;
+  margin-bottom: 10px;
+  width: calc(100% - 160px);
+  float: left;
+  li{
+    display: block;
+  }
+  li a{
+    line-height: inherit;
+    padding: 0px 22px;
+  }
+}
+
+body.checkout .contents, body.menu .contents {
+padding-top: 140px;
+}
 
 .menu-left{
 	display: none;
