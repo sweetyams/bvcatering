@@ -72,7 +72,7 @@ $( document ).ready(function() {
 
 	$('.overlay').on('click', function(){
 		$('.overlay').removeClass('active order checkout-visible').fadeOut();
-		$('.tabcontent').removeClass('front');
+		$('.overlay .tabcontent').removeClass('front');
 	});
 
 	$('.showpanel').click(function(event){
@@ -88,22 +88,22 @@ $( document ).ready(function() {
       return false;
   });
 
-	function tabHeight(target, active){
-		var setHeight = $(active).height() + 40;
+	function tabHeight(target, active, add){
+		var setHeight = $(active).height() + add;
 		$(target).height(setHeight);
 	}
 
-	function changeTab(target,tab){
+	function changeTab(target,tab, add){
 		$(target).prev('.nav').children().children().removeClass('current');
 		$('a[href^="'+tab+'"]').addClass('current');
 		$(target).children().removeClass('front').end().find($(tab)).addClass('front');
 
-		tabHeight(target, tab);
+		tabHeight(target, tab, add);
 	}
 	
-	tabHeight('#sign','#signin');
-	tabHeight('#alltabs','#signtab');
-  tabHeight('#payment','#credit');
+	tabHeight('#sign','#signin', 40);
+	tabHeight('#alltabs','#signtab', 40);
+  tabHeight('#payment','#credit',0);
 	
 	$('.changetab').on('click', function(){
 		var $this = $(this),
@@ -112,15 +112,17 @@ $( document ).ready(function() {
 			subtarget = $this.data('subtarget'),
 			subtab = $this.data('subtab');
 
+      var add = 40;
+      if(target == "#payment"){
+        add = 10;
+      }
 		if(target,tab){
 			if(subtarget){
-				changeTab(subtarget,subtab);
-				changeTab(target,tab);
+				changeTab(subtarget,subtab, add);
+				changeTab(target,tab, add);
 			} else{
-				changeTab(target,tab);
+				changeTab(target,tab, add);
 			}
-
-			changeTab(target,tab);
 		} else{
 			console.log('error');
 		}
@@ -128,6 +130,7 @@ $( document ).ready(function() {
 		return false;
 	});
 
+if($('.date').length){
   $('.date').pickadate({
     // weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
     showMonthsShort: true,
@@ -139,6 +142,9 @@ $( document ).ready(function() {
         }
     }
   })
+}
+
+if($('.date').length){
   $('.time').pickatime({
     clear: 'cancel',
     min: [10,00],
@@ -150,6 +156,7 @@ $( document ).ready(function() {
         }
     }
   })
+}
 
 
   if ($('#cheque').attr('data-amount')){
@@ -214,7 +221,7 @@ $( document ).ready(function() {
     updateCart();
   });
 
-  // UPDATE ON CHANGE INPUT
+  // UPDATE CART ON CHANGE INPUT
   $('.quantity input').on('input', function() { 
     var input = $(this)
     updateTotal(input);
@@ -228,7 +235,83 @@ $( document ).ready(function() {
   updateCart();
 
   // PREVENT TEXT SELECT ON SPAN DOUBLE CLICK
-  $('.quantity span').mousedown(function(e){ e.preventDefault(); })
+  $('.quantity span').mousedown(function(e){ e.preventDefault(); });
+  
+
+
+  // SECTION FOR MENU
+  // UPDATE ITEM ON CHANGE INPUT
+  $('.info .amount').prepend('<span class="icon-minus"></span>');
+  $('.info .amount').append('<span class="icon-plus"></span>');
+
+  $('.amount span').mousedown(function(e){ e.preventDefault(); });
+
+
+  $(".info .amount span[class^='icon-']").on('click', function(){
+    var direction = $(this).attr("class");
+    var input = $(this).parent().find("input");
+    var oldValue = input.val();
+    if(direction.slice(5) === 'plus'){
+      if(oldValue == ''){
+        newVal = 1;
+      } else {
+        var newVal = parseFloat(oldValue) + 1;
+      }
+    } else {
+      if (oldValue > 0) {
+        var newVal = parseFloat(oldValue) - 1;
+      } else {
+        newVal = 0;
+      } 
+    }
+    if(newVal === 0){
+      $(this).closest('.item').removeClass('active');
+    }
+    input.val(newVal);
+
+  });
+
+  $('.item input').focusout(function() {
+    if($(this).val() == '0'){
+      $(this).closest('.item').removeClass('active');
+    }
+  });
+
+  $('.item .button').on('click', function(){
+    $(this).closest('.item').addClass('active').find('input').val(1);
+  });
+
+
+  $('.item .info .button').each(function(){
+    var item = $(this),
+    val = item.attr('data-amount').split(".");
+    item.prepend('<span class="cost"><span class="dollar">$'+val[0]+'</span><span class="cents">.'+val[1]+' </span></span>')
+  });
+
+if($(".checkout-header").length){
+$(function(){
+  $(window).scroll(function(){
+    var winTop = $(window).scrollTop();
+    if(winTop >= 80){
+      $(".checkout-header").addClass("sticky");
+    }else{
+      $(".checkout-header").removeClass("sticky");
+    }//if-else
+  });//win func.
+});//ready func.
+}
+if($(".menu-header").length){
+$(function(){
+  $(window).scroll(function(){
+    var winTop = $(window).scrollTop();
+    if(winTop >= 80){
+      $(".menu-header").addClass("sticky");
+    }else{
+      $(".menu-header").removeClass("sticky");
+    }//if-else
+  });//win func.
+});//ready func.
+}
 
 // the selector will match all input controls of type :checkbox
 // and attach a click event handler 

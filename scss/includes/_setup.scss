@@ -40,6 +40,19 @@ form{
   text-align: right;
 }
 
+.grey{
+  background: $grey-10;
+}
+.full-width.grey{
+  margin-top: 80px;
+  .row{
+    padding: 60px 0px 40px 0px;
+  }
+  h6{
+    margin-bottom: 20px;
+  }
+}
+
 //RESETS
 a{
   color:$colour-primary;
@@ -296,12 +309,17 @@ textarea{
   }
   &.grey{
     @include button($grey-10, $grey-15);
+    color:$menu;
+  }
+  &.white{
+    @include button($white, $grey-5);
+    color: $menu;
   }
   &.large{
     padding: 15px 20px;
     font-size: 11px;
-    color:$menu;
   }
+
   &.modal_close{
     background: none;
     border-color: $black;
